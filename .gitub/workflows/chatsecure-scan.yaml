@@ -1,0 +1,20 @@
+name: Swift CI with Nexus IQ
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Nexus IQ Policy Evaluation
+      uses: sonatype-nexus-community/iq-github-action@master
+      with:
+        serverUrl: https://iq.ajoanes.ngrok.io
+        username: admin
+        password: iqAj610298!
+        applicationId: chatsecure-swift-github
+        stage: build
+        target: .
